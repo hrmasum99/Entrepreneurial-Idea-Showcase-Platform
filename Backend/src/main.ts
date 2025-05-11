@@ -9,5 +9,6 @@ async function bootstrap() {
     credentials: true,
     }); 
   await app.listen(3000);
+  // console.log(process.env.dbuser);
 }
 bootstrap();

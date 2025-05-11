@@ -1,7 +1,8 @@
-import { Body, Controller, Get, Param, Post, Put, UseGuards, UsePipes, ValidationPipe, Req, Request, Delete, BadRequestException, Query, NotFoundException, UseInterceptors, UploadedFile, Res } from "@nestjs/common";
+/* eslint-disable prettier/prettier */
+import { Body, Controller, Get, Param, Post, Put, UseGuards, UsePipes, ValidationPipe, Req, Delete, BadRequestException, NotFoundException, UseInterceptors, UploadedFile, Res } from "@nestjs/common";
 import { AdminService } from "./admin.service";
 import * as bcrypt from 'bcrypt';
-import { AdminProfile } from "./admin.profile";
+//import { AdminProfile } from "./admin.profile";
 import { AdminEntity } from "./admin.entity";
 import { JwtAuthGuard } from "src/auth/jwt-auth.guard";
 import { AdminGuard } from "src/auth/guards/admin.guard";
@@ -11,7 +12,7 @@ import { Event_CoordinatorEntity } from "src/event-coordinator/event-coordinator
 import { UpdateEventCoordinatorDTO } from "src/event-coordinator/event-coordinator.dto";
 import { FileInterceptor } from "@nestjs/platform-express";
 import { diskStorage, MulterError } from "multer";
-import path from "path";
+//import path from "path";
 import { JudgeDTO, JudgeProfileDTO, JudgeUpdateDTO } from "src/judge/judge.dto";
 import { EntrepreneurDTO, EntrepreneurProfileDTO } from "src/entrepreneur/entrepreneur.dto";
 

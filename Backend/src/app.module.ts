@@ -14,10 +14,11 @@ import { PresentationModule } from './presentation/presentation.module';
 import { InvestmentModule } from './investment/investment.module';
 // import { EventModule } from './event/event.module';
 import { ReviewModule } from './review/review.module';
+import { ConfigModule } from '@nestjs/config';
 
 
 @Module({
-  imports: [
+  imports: [ConfigModule.forRoot({isGlobal: true,}),
     AuthModule, 
     AdminModule, 
     JudgeModule, 
@@ -31,22 +32,22 @@ import { ReviewModule } from './review/review.module';
     ReviewModule,
     TypeOrmModule.forRoot(
     { type: 'postgres',
-    host: 'localhost',
-    port: 5432,
-    username: 'postgres',
-    password: 'root',
+    host: process.env.dbhost,
+    port: +process.env.dbport,
+    username: process.env.dbuser,
+    password: process.env.dbpass,
     database: 'cs',//Change to your database name
     autoLoadEntities: true,
-    synchronize: true,
+    synchronize: true, 
     } ),MailerModule.forRoot({
       transport: {
         host: 'smtp.gmail.com',
-        port: 465,
+        port: +process.env.mailport,
         ignoreTLS: true,
         secure: true,
         auth: {
-          user: 'code4ever.masum99@gmail.com',
-          pass: 'pers tina ydng xipb',
+          user: process.env.mailuser,
+          pass: process.env.mailpass,
         },
       },
     }), ],
